@@ -14,10 +14,15 @@ class Account extends Model
     protected $fillable = [
         'nama_akun',
         'saldo',
+        'user_id',
     ];
 
     public function transaction()
     {
         return $this->hasMany(Transaction::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
